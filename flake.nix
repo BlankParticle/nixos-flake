@@ -7,34 +7,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = imported-modules @ { nixpkgs, ... }:
     let
-      system = "x86_64-linux";
-      # pkgs = import nixpkgs {
-      #   inherit system;
-      #   config.allowUnfree = true;
-      # };
-      lib = nixpkgs.lib;
-
+      username = "blank";
     in
     {
-      nixosConfigurations = {
-        BlankUniverse = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.blank = {
-                imports = [ ./home.nix ];
-              };
-            }
-          ];
-        };
-      };
+      nixosConfigurations = (
+        import ./nixos {
+          inherit imported-modules nixpkgs username;
+          system = "x86_64-linux";
+        }
+      );
     };
 }

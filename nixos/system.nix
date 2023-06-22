@@ -1,11 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
-
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-
   boot = {
     plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
@@ -24,14 +18,14 @@
     };
   };
 
-  fileSystems."/home/blank/Data" =
-    {
-      device = "/dev/disk/by-label/Data";
-      fsType = "ntfs-3g";
-      options = [ "rw" "uid=blank" "dmask=022" "fmask=133" ];
-    };
-
   time.timeZone = "Asia/Kolkata";
+
+  users.users.${username} = {
+    isNormalUser = true;
+    description = "Blank Particle";
+    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+  };
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -52,48 +46,47 @@
   hardware.pulseaudio.enable = false;
   security = {
     rtkit.enable = true;
-    sudo.extraConfig = "Defaults !tty_tickets\nDefaults pwfeedback";
+    polkit.enable = true;
+    sudo.extraConfig = "Defaults !tty_tickets, pwfeedback";
   };
 
   environment = {
-    gnome.excludePackages = with pkgs.gnome; [
-      baobab # disk usage analyzer
-      cheese # photo booth
-      epiphany # web browser
-      gedit # text editor
-      simple-scan # document scanner
-      totem # video player
-      yelp # help viewer
-      geary # email client
-      gnome-contacts
-      gnome-maps
-      gnome-music
-      gnome-system-monitor
-      gnome-weather
-      gnome-disk-utility
-      pkgs.gnome-connections
-      pkgs.gnome-text-editor
-      pkgs.gnome-tour
-    ];
+    gnome.excludePackages =
+      (with pkgs.gnome; [
+        baobab # disk usage analyzer
+        cheese # photo booth
+        epiphany # web browser
+        gedit # text editor
+        simple-scan # document scanner
+        totem # video player
+        yelp # help viewer
+        geary # email client
+        gnome-contacts
+        gnome-maps
+        gnome-music
+        gnome-system-monitor
+        gnome-weather
+        gnome-disk-utility
+      ]) ++ (with pkgs;[
+        gnome-console
+        gnome-connections
+        gnome-text-editor
+        gnome-tour
+      ]);
 
     systemPackages = with pkgs; [
       curl
       wget
       speedtest-rs
+      pciutils
+      neofetch
+      nil
+      nixpkgs-fmt
+      zip
+      unzip
       gnome.gnome-tweaks
     ];
   };
-
-  users = {
-    users.blank = {
-      isNormalUser = true;
-      description = "Blank Particle";
-      extraGroups = [ "networkmanager" "wheel" ];
-    };
-    defaultUserShell = pkgs.zsh;
-  };
-
-  nixpkgs.config.allowUnfree = true;
 
   services = {
     syncthing = {
@@ -140,12 +133,13 @@
   };
 
   programs = {
+    zsh.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
     };
-    zsh.enable = true;
     gnome-terminal.enable = true;
+    dconf.enable = true;
   };
 
   networking = {

@@ -13,16 +13,21 @@
   };
 
   fileSystems = {
+    "/boot" =
+      {
+        device = "/dev/disk/by-uuid/E8A9-7BDE";
+        fsType = "vfat";
+      };
     "/" =
       {
         device = "/dev/disk/by-label/NixOS";
         fsType = "ext4";
       };
-
-    "/boot" =
+    "/home/blank/Data" =
       {
-        device = "/dev/disk/by-uuid/E8A9-7BDE";
-        fsType = "vfat";
+        device = "/dev/disk/by-label/Data";
+        fsType = "ntfs-3g";
+        options = [ "rw" "uid=blank" "dmask=022" "fmask=133" ];
       };
   };
 
