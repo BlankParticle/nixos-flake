@@ -139,7 +139,6 @@
       enableSSHSupport = true;
     };
     gnome-terminal.enable = true;
-    dconf.enable = true;
   };
 
   networking = {

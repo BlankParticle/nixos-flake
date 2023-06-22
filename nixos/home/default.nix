@@ -1,7 +1,12 @@
 { pkgs, username, ... }:
 
 {
-  imports = [ ./spicetify.nix ./starship.nix ];
+  imports = [
+    ./spicetify.nix
+    ./starship.nix
+    ./dconf.nix
+  ];
+
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
@@ -9,17 +14,20 @@
       (with pkgs; [
         discord
         google-chrome-dev
-        vscode
-        nodejs_20
         rustup
         obsidian
         keepassxc
-        catppuccin-gtk
-        catppuccin-cursors.mochaMauve
         betterdiscordctl
         vlc
-        nodePackages_latest.pnpm
-      ]) ++ (with pkgs.gnomeExtensions; [
+      ])
+      ++ (with pkgs.nodePackages_latest; [
+        pnpm
+        typescript
+        ts-node
+        nodemon
+      ])
+      ++ (with pkgs.gnomeExtensions;
+      [
         appindicator
         clipboard-indicator
         mpris-label
@@ -28,7 +36,26 @@
 
     stateVersion = "23.05";
   };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "standard";
+        variant = "mocha";
+      };
+    };
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Mauve-Cursors";
+      package = pkgs.catppuccin-cursors.mochaMauve;
+    };
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+  };
   programs = {
+    vscode.enable = true;
     neovim.enable = true;
     btop.enable = true;
     git = {
