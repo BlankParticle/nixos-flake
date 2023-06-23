@@ -24,13 +24,13 @@
       "org/gnome/desktop/interface" = {
         clock-show-seconds = true;
         clock-show-weekday = true;
-        color-scheme = "prefer-dark";
-        cursor-theme = "Catppuccin-Mocha-Mauve-Cursors";
+        # color-scheme = "prefer-dark";
+        # cursor-theme = "Catppuccin-Mocha-Mauve-Cursors";
         enable-hot-corners = false;
         font-antialiasing = "grayscale";
         font-hinting = "slight";
-        gtk-theme = "Catppuccin-Mocha-Standard-Mauve-dark";
-        icon-theme = "Adwaita";
+        # gtk-theme = "Catppuccin-Mocha-Standard-Mauve-dark";
+        # icon-theme = "Adwaita";
         monospace-font-name = "JetBrainsMono Nerd Font 10";
         show-battery-percentage = true;
       };
@@ -104,9 +104,9 @@
         use-album = false;
       };
 
-      "org/gnome/shell/extensions/user-theme" = {
-        name = "Catppuccin-Mocha-Standard-Mauve-dark";
-      };
+      # "org/gnome/shell/extensions/user-theme" = {
+      #   name = "Catppuccin-Mocha-Standard-Mauve-dark";
+      # };
 
       "org/gnome/terminal/legacy/profiles:" = {
         default = "95894cfd-82f7-430d-af6e-84d168bc34f5";

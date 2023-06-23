@@ -7,17 +7,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = imported-modules @ { nixpkgs, ... }:
+  outputs = imported-modules:
     let
       username = "blank";
     in
     {
       nixosConfigurations = (
         import ./nixos {
-          inherit imported-modules nixpkgs username;
+          inherit imported-modules username;
           system = "x86_64-linux";
         }
       );

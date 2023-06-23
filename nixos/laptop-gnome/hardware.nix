@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, ... }:
+{ config, lib, modulesPath, system, username, ... }:
 
 {
   imports =
@@ -23,16 +23,16 @@
         device = "/dev/disk/by-label/NixOS";
         fsType = "ext4";
       };
-    "/home/blank/Data" =
+    "/home/${username}/Data" =
       {
         device = "/dev/disk/by-label/Data";
         fsType = "ntfs-3g";
-        options = [ "rw" "uid=blank" "dmask=022" "fmask=133" ];
+        options = [ "rw" "uid=${username}" "dmask=022" "fmask=133" ];
       };
   };
 
   swapDevices = [ ];
   networking.useDHCP = lib.mkDefault true;
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = lib.mkDefault system;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

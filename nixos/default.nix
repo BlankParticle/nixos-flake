@@ -1,31 +1,14 @@
-{ system, imported-modules, username, nixpkgs, ... }:
+{ imported-modules, system, username, ... }:
 let
-  pkgs = import nixpkgs
+  pkgs = import imported-modules.nixpkgs
     {
       inherit system;
       config.allowUnfree = true;
     };
 in
 {
-  BlankUniverse = nixpkgs.lib.nixosSystem {
-    inherit system;
-    specialArgs = {
-      inherit pkgs imported-modules username;
-    };
-    modules = [
-      ./hardware.nix
-      ./system.nix
-      imported-modules.home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          inherit pkgs system imported-modules username;
-        };
-        home-manager.users.${username} = {
-          imports = [ ./home ];
-        };
-      }
-    ];
+  laptop-gnome = import ./laptop-gnome {
+    inherit (imported-modules.nixpkgs) lib;
+    inherit imported-modules pkgs username system;
   };
 }

@@ -1,9 +1,9 @@
 { imported-modules, system, ... }:
 let
-  spicetify-pkgs = imported-modules.spicetify-nix.packages.${system}.default;
+  spicetify-pkgs = imported-modules.spicetify.packages.${system}.default;
 in
 {
-  imports = [ imported-modules.spicetify-nix.homeManagerModule ];
+  imports = [ imported-modules.spicetify.homeManagerModule ];
   programs.spicetify =
     {
       enable = true;

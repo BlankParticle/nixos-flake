@@ -1,5 +1,7 @@
 { pkgs, username, ... }:
 {
+
+  imports = [ ../../desktop-env/gnome/system.nix ];
   boot = {
     plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
@@ -51,28 +53,28 @@
   };
 
   environment = {
-    gnome.excludePackages =
-      (with pkgs.gnome; [
-        baobab # disk usage analyzer
-        cheese # photo booth
-        epiphany # web browser
-        gedit # text editor
-        simple-scan # document scanner
-        totem # video player
-        yelp # help viewer
-        geary # email client
-        gnome-contacts
-        gnome-maps
-        gnome-music
-        gnome-system-monitor
-        gnome-weather
-        gnome-disk-utility
-      ]) ++ (with pkgs;[
-        gnome-console
-        gnome-connections
-        gnome-text-editor
-        gnome-tour
-      ]);
+    # gnome.excludePackages =
+    #   (with pkgs.gnome; [
+    #     baobab # disk usage analyzer
+    #     cheese # photo booth
+    #     epiphany # web browser
+    #     gedit # text editor
+    #     simple-scan # document scanner
+    #     totem # video player
+    #     yelp # help viewer
+    #     geary # email client
+    #     gnome-contacts
+    #     gnome-maps
+    #     gnome-music
+    #     gnome-system-monitor
+    #     gnome-weather
+    #     gnome-disk-utility
+    #   ]) ++ (with pkgs;[
+    #     gnome-console
+    #     gnome-connections
+    #     gnome-text-editor
+    #     gnome-tour
+    #   ]);
 
     systemPackages = with pkgs; [
       curl
@@ -86,7 +88,6 @@
       unzip
     ];
   };
-
   services = {
     syncthing = {
       enable = true;
@@ -96,12 +97,11 @@
     };
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
       layout = "us";
       xkbVariant = "";
       excludePackages = [ pkgs.xterm ];
     };
+
     printing.enable = false;
     pipewire = {
       enable = true;
@@ -116,6 +116,7 @@
     pcscd.enable = true;
     gnome.gnome-browser-connector.enable = true;
   };
+
 
   fonts = {
     fonts = with pkgs; [
