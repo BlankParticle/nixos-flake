@@ -19,12 +19,7 @@
         keepassxc
         betterdiscordctl
         vlc
-      ])
-      ++ (with pkgs.nodePackages_latest; [
-        pnpm
-        typescript
-        ts-node
-        nodemon
+        nodePackages_latest.pnpm
       ])
       ++ (with pkgs.gnomeExtensions;
       [
@@ -40,7 +35,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+      name = "Catppuccin-Mocha-Standard-Mauve-dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "mauve" ];
         size = "standard";
@@ -53,6 +48,10 @@
     };
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+  };
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
   };
   programs = {
     vscode.enable = true;

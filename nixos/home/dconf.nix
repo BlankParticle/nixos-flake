@@ -29,7 +29,7 @@
         enable-hot-corners = false;
         font-antialiasing = "grayscale";
         font-hinting = "slight";
-        gtk-theme = "Catppuccin-Mocha-Standard-Mauve-Dark";
+        gtk-theme = "Catppuccin-Mocha-Standard-Mauve-dark";
         icon-theme = "Adwaita";
         monospace-font-name = "JetBrainsMono Nerd Font 10";
         show-battery-percentage = true;
@@ -105,7 +105,7 @@
       };
 
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+        name = "Catppuccin-Mocha-Standard-Mauve-dark";
       };
 
       "org/gnome/terminal/legacy/profiles:" = {

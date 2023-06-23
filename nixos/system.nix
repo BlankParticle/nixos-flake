@@ -84,7 +84,6 @@
       nixpkgs-fmt
       zip
       unzip
-      gnome.gnome-tweaks
     ];
   };
 
