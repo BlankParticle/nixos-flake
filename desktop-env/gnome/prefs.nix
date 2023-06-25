@@ -1,7 +1,7 @@
 { ... }: {
   dconf.settings = {
     "org/gnome/desktop/peripherals/touchpad" = {
-      disable-while-typing = false;
+      disable-while-typing = true;
       speed = 0.20454545454545459;
       tap-to-click = true;
       two-finger-scrolling-enabled = true;

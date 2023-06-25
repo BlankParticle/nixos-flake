@@ -45,7 +45,10 @@
   };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.settings.General.Experimental = true;
+  };
   security = {
     rtkit.enable = true;
     polkit.enable = true;
@@ -58,11 +61,11 @@
       wget
       speedtest-rs
       pciutils
-      neofetch
       nil
       nixpkgs-fmt
       zip
       unzip
+      qt5.qtwayland
     ];
   };
   services = {

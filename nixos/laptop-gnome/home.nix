@@ -3,23 +3,17 @@
 {
   imports = [
     ../../desktop-env/gnome/home.nix
-    ../../home-manager/zsh.nix
-    ../../home-manager/git.nix
-    ../../home-manager/starship.nix
-    ../../home-manager/spicetify.nix
-    ../../home-manager/gnome-terminal.nix
-  ];
+  ]
+  ++ map (program: ../../home-manager/${program}.nix)
+    [ "zsh" "git" "starship" "spicetify" "gnome-terminal" "direnv" "keepassxc" "discord" "neofetch" "btop" ];
 
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
-      discord
       google-chrome-dev
       rustup
       obsidian
-      keepassxc
-      betterdiscordctl
       vlc
       nodePackages_latest.pnpm
     ];
@@ -29,7 +23,6 @@
   programs = {
     vscode.enable = true;
     neovim.enable = true;
-    btop.enable = true;
     exa = {
       enable = true;
       enableAliases = true;

@@ -1,7 +1,6 @@
 { imported-modules, username, pkgs, lib, system, ... }:
 
 lib.nixosSystem {
-  pkgs.bluez.override = { withExperimental = true; };
   inherit system;
   specialArgs = {
     inherit system pkgs imported-modules username;

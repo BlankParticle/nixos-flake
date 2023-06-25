@@ -37,7 +37,7 @@
     "org/gnome/shell/extensions/mpris-label" = {
       auto-switch-to-most-recent = true;
       button-placeholder = "";
-      divider-string = "|";
+      divider-string = "\ |\ ";
       extension-index = 0;
       first-field = "xesam:title";
       icon-padding = 0;
