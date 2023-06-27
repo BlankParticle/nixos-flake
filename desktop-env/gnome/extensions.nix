@@ -4,6 +4,7 @@
     clipboard-indicator
     mpris-label
     bluetooth-quick-connect
+    blur-my-shell
   ];
 
   dconf.settings = {
@@ -15,6 +16,7 @@
         "username-to-activities@deserts"
         "appindicatorsupport@rgcjonas.gmail.com"
         "bluetooth-quick-connect@bjarosze.gmail.com"
+        "blur-my-shell@aunetx"
       ];
     };
 
@@ -55,6 +57,19 @@
       thumb-backward-action = "none";
       thumb-forward-action = "none";
       use-album = false;
+    };
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      debug = false;
+      hacks-level = 1;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+      blur = false;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      style-components = 2;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      blur = false;
     };
   };
 }
