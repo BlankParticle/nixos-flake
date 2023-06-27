@@ -1,11 +1,10 @@
 { pkgs, config, ... }: {
-  home.packages = with pkgs; [
-    discord
-    betterdiscordctl
-  ];
-
-  home.file."${config.xdg.configHome}/BetterDiscord/themes/mocha.theme.css" = {
-    text = ''
+  home = {
+    packages = with pkgs; [
+      discord
+      betterdiscordctl
+    ];
+    file."${config.xdg.configHome}/BetterDiscord/themes/mocha.theme.css".text = ''
        /**
        * @name Catppuccin Mocha
        * @author winston#0001
