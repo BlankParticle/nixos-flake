@@ -71,9 +71,9 @@
   services = {
     syncthing = {
       enable = true;
-      user = "blank";
-      dataDir = "/home/blank/Data/Sync";
-      configDir = "/home/blank/.config/syncthing";
+      user = username;
+      dataDir = "/home/${username}/Data/Sync";
+      configDir = "/home/${username}/.config/syncthing";
     };
     xserver = {
       enable = true;
@@ -104,6 +104,13 @@
       noto-fonts-emoji
       noto-fonts-cjk
       jetbrains-mono
+      (import
+        ../sources/apple-font.nix
+        {
+          inherit lib;
+          inherit (pkgs) stdenv p7zip;
+          inherit (builtins) fetchurl;
+        })
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
     fontconfig = {
@@ -120,13 +127,14 @@
     };
     gnome-terminal.enable = true;
   };
-
   networking = {
     hostName = "BlankUniverse";
-    networkmanager.enable = true;
     firewall.enable = false;
+    networkmanager = {
+      enable = true;
+      wifi.powersave = false;
+    };
   };
-
   system.stateVersion = "23.05";
   nix = {
     package = pkgs.nixFlakes;
