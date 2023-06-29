@@ -1,6 +1,6 @@
 {
   nodejs = {
-    path = ./nodejs.nix;
+    path = ./nodejs;
     description = "NodeJS current and pnpm flake";
   };
 }

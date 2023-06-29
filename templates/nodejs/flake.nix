@@ -1,5 +1,5 @@
 {
-  description = "NodeJS current and pnpm flake";
+  description = "NodeJS current and pnpm Project";
 
   inputs = {
     nixpkgs.url = "nixpkgs";
@@ -7,11 +7,11 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
+    flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
       in
-      rec {
+      {
         flakedPkgs = pkgs;
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
