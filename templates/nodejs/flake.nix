@@ -12,7 +12,6 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        flakedPkgs = pkgs;
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs_20
