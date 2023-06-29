@@ -61,8 +61,6 @@
       wget
       speedtest-rs
       pciutils
-      nil
-      nixpkgs-fmt
       zip
       unzip
     ];

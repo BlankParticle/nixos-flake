@@ -15,7 +15,6 @@
       rustup
       obsidian
       vlc
-      nodePackages_latest.pnpm
     ];
     stateVersion = "23.05";
   };
