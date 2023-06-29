@@ -5,7 +5,7 @@
     ../../desktop-env/gnome/home.nix
   ]
   ++ map (program: ../../home-manager/${program}.nix)
-    [ "zsh" "git" "starship" "spicetify" "gnome-terminal" "direnv" "keepassxc" "discord" "neofetch" "btop" ];
+    [ "zsh" "git" "starship" "spicetify" "gnome-terminal" "direnv" "keepassxc" "discord" "neofetch" "btop" "vscode" ];
 
   home = {
     inherit username;
@@ -21,7 +21,6 @@
   };
 
   programs = {
-    vscode.enable = true;
     neovim.enable = true;
     exa = {
       enable = true;
