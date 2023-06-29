@@ -1,5 +1,5 @@
 {
-  description = "Tauri Project";
+  description = "Rust, Cargo and Tauri Project";
 
   inputs = {
     nixpkgs.url = "nixpkgs";
@@ -33,6 +33,11 @@
           libsoup
           webkitgtk
           librsvg
+          cargo
+          rustc
+          rustfmt
+          rustPackages.clippy
+          rust-analyzer
           nodejs_20
           nodePackages_latest.pnpm
         ];
@@ -40,6 +45,7 @@
       {
         devShell = pkgs.mkShell {
           buildInputs = packages;
+          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
           shellHook =
             ''
               export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath libraries}:$LD_LIBRARY_PATH

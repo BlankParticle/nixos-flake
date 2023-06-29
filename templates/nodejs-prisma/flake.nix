@@ -1,5 +1,5 @@
 {
-  description = "NodeJS current, pnpm & prisma Project";
+  description = "NodeJS current, pnpm and prisma Project";
   inputs = {
     nixpkgs.url = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";

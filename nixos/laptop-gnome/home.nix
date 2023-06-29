@@ -12,7 +12,6 @@
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
       google-chrome-dev
-      rustup
       obsidian
       vlc
     ];
