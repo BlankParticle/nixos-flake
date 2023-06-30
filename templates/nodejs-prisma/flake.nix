@@ -13,9 +13,9 @@
       {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-            nodePackages.prisma
-            nodePackages.pnpm
-            nodejs_20
+            nodePackages_latest.prisma
+            nodePackages_latest.pnpm
+            (nodejs_20.override { enableNpm = false; })
           ];
           shellHook = with pkgs; ''
             export PRISMA_MIGRATION_ENGINE_BINARY="${prisma-engines}/bin/migration-engine"

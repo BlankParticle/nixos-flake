@@ -14,7 +14,7 @@
       {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-            nodejs_20
+            (nodejs_20.override { enableNpm = false; })
             nodePackages_latest.pnpm
           ];
         };

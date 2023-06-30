@@ -38,7 +38,7 @@
           rustfmt
           rustPackages.clippy
           rust-analyzer
-          nodejs_20
+          (nodejs_20.override { enableNpm = false; })
           nodePackages_latest.pnpm
         ];
       in
