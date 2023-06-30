@@ -14,8 +14,9 @@
   outputs = imported-modules:
     let
       username = "blank";
+      lib = imported-modules.nixpkgs.lib;
     in
-    imported-modules.nixpkgs.lib.foldl' imported-modules.nixpkgs.lib.recursiveUpdate { } [
+    lib.foldl' lib.recursiveUpdate { } [
       {
         nixosConfigurations = (
           import ./nixos {
@@ -25,7 +26,7 @@
         );
         templates = import ./templates;
       }
-      (imported-modules.flake-utils.lib.eachSystem [ "x86_64-linux" ] (system: (
+      (imported-modules.flake-utils.lib.eachDefaultSystem (system: (
         let
           pkgs = imported-modules.nixpkgs.legacyPackages.${system};
         in
