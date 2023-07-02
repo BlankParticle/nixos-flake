@@ -16,5 +16,8 @@
       command = "gnome-terminal";
       name = "Open Terminal";
     };
+    "org/gnome/shell/keybindings" = {
+      toggle-message-tray = [ "<Super>m" ];
+    };
   };
 }

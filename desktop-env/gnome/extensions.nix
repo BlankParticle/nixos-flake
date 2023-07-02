@@ -1,22 +1,22 @@
 { pkgs, ... }: {
   home.packages = with pkgs.gnomeExtensions;[
     appindicator
-    clipboard-indicator
     mpris-label
     bluetooth-quick-connect
     blur-my-shell
+    pano
   ];
 
   dconf.settings = {
     "org/gnome/shell" = {
       enabled-extensions = [
         "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "clipboard-indicator@tudmotu.com"
         "mprisLabel@moon-0xff.github.com"
         "username-to-activities@deserts"
         "appindicatorsupport@rgcjonas.gmail.com"
         "bluetooth-quick-connect@bjarosze.gmail.com"
         "blur-my-shell@aunetx"
+        "pano@elhan.io"
       ];
     };
 
@@ -70,6 +70,14 @@
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       blur = false;
+    };
+    "org/gnome/shell/extensions/pano" = {
+      history-length = 500;
+      link-previews = false;
+      send-notification-on-copy = false;
+      sync-primary = false;
+      watch-exclusion-list = true;
+      global-shortcut = [ "<Super>v" ];
     };
   };
 }
