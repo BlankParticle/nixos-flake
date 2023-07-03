@@ -1,21 +1,25 @@
 {
   description = "Rust and Cargo Project";
-  inputs = {
-    naersk.url = "github:nix-community/naersk/master";
-    nixpkgs.url = "nixpkgs";
-    utils.url = "github:numtide/flake-utils";
-  };
-  outputs = { self, nixpkgs, utils, naersk }:
-    utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-        naersk-lib = pkgs.callPackage naersk { };
-      in
-      {
-        defaultPackage = naersk-lib.buildPackage ./.;
-        devShell = with pkgs; mkShell {
-          buildInputs = [ cargo rustc rustfmt rustPackages.clippy rust-analyzer ];
-          RUST_SRC_PATH = rustPlatform.rustLibSrc;
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      packages = with pkgs; [
+        cargo
+        rustc
+        rustfmt
+        rustPackages.clippy
+        rust-analyzer
+        nil
+        nixpkgs-fmt
+      ];
+    in
+    {
+      devShells.${system}.default =
+        pkgs.mkShell {
+          inherit packages;
+          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
         };
-      });
+    };
 }

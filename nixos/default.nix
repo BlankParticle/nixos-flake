@@ -1,11 +1,4 @@
-{ imported-modules, system, username, ... }:
-let
-  pkgs = import imported-modules.nixpkgs
-    {
-      inherit system;
-      config.allowUnfree = true;
-    };
-in
+{ imported-modules, system, username, pkgs, ... }:
 {
   laptop-gnome = import ./laptop-gnome {
     inherit (imported-modules.nixpkgs) lib;

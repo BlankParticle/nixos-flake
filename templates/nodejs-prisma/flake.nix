@@ -1,22 +1,22 @@
 {
   description = "NodeJS current, pnpm and prisma Project";
-  inputs = {
-    nixpkgs.url = "nixpkgs";
-    flake-utils.url = "github:numtide/flake-utils";
-  };
-
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            nodePackages_latest.prisma
-            nodePackages_latest.pnpm
-            (nodejs_20.override { enableNpm = false; })
-          ];
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      packages = with pkgs; [
+        (nodejs_20.override { enableNpm = false; })
+        nodePackages_latest.pnpm
+        nodePackages_latest.prisma
+        nil
+        nixpkgs-fmt
+      ];
+    in
+    {
+      devShells.${system}.default =
+        pkgs.mkShell {
+          inherit packages;
           shellHook = with pkgs; ''
             export PRISMA_MIGRATION_ENGINE_BINARY="${prisma-engines}/bin/migration-engine"
             export PRISMA_QUERY_ENGINE_BINARY="${prisma-engines}/bin/query-engine"
@@ -25,5 +25,5 @@
             export PRISMA_FMT_BINARY="${prisma-engines}/bin/prisma-fmt"
           '';
         };
-      });
+    };
 }

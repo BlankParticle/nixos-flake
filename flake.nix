@@ -8,36 +8,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify.url = "github:the-argus/spicetify-nix";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = imported-modules:
     let
       username = "blank";
-      lib = imported-modules.nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = import imported-modules.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
-    lib.foldl' lib.recursiveUpdate { } [
-      {
-        nixosConfigurations = (
-          import ./nixos {
-            inherit imported-modules username;
-            system = "x86_64-linux";
-          }
-        );
-        templates = import ./templates;
-      }
-      (imported-modules.flake-utils.lib.eachDefaultSystem (system: (
-        let
-          pkgs = imported-modules.nixpkgs.legacyPackages.${system};
-        in
-        {
-          devShells.default = pkgs.mkShell {
-            packages = with pkgs;[
-              nil
-              nixpkgs-fmt
-            ];
-          };
+    {
+      nixosConfigurations = (
+        import ./nixos {
+          inherit imported-modules username system pkgs;
         }
-      )))
-    ];
+      );
+      devShells.${system}.default =
+        pkgs.mkShell {
+          packages = with pkgs; [
+            nil
+            nixpkgs-fmt
+          ];
+        };
+      templates = import ./templates;
+    };
 }
