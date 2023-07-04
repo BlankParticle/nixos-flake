@@ -14,7 +14,7 @@
       name = "org.keepassxc.KeePassXC";
       package = pkgs.keepassxc;
       after = ''
-        Exec=bash -c 'sleep 5 && ${pkgs.keepassxc}/bin/keepassxc'
+        Exec=bash -c 'sleep 5 && keepassxc'
       '';
     })
   ];
