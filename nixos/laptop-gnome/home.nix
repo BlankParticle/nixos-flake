@@ -17,5 +17,6 @@
       "neofetch"
       "btop"
       "vscode"
+      "obs-studio"
     ];
 }
