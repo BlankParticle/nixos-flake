@@ -5,7 +5,7 @@
     packages = with pkgs; [
       google-chrome-dev
       obsidian
-      vlc
+      celluloid
     ];
     stateVersion = "23.05";
   };
