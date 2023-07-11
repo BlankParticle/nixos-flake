@@ -5,13 +5,6 @@
       noto-fonts-emoji
       noto-fonts-cjk
       jetbrains-mono
-      (import
-        ../sources/apple-font.nix
-        {
-          inherit lib;
-          inherit (pkgs) stdenv p7zip;
-          inherit (builtins) fetchurl;
-        })
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
     fontconfig = {

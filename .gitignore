@@ -1,1 +1,2 @@
 .direnv
+templates/*/flake.lock
