@@ -20,19 +20,19 @@
   ];
   home.file = {
     # Chrome-Dev Message Host
-    "${config.xdg.configHome}/google-chrome/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json".text =
-      lib.generators.toJSON { } {
-        allowed_origins = [
-          "chrome-extension://pdffhmdngciaglkoonimfcmckehcpafo/"
-          "chrome-extension://oboonakemofpalcgghocfoadofidjkkk/"
-        ];
-        description = "KeePassXC integration with native messaging support";
-        name = "org.keepassxc.keepassxc_browser";
-        path = "${pkgs.keepassxc}/bin/keepassxc-proxy";
-        type = "stdio";
-      };
+    # "${config.xdg.configHome}/google-chrome/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json".text =
+    #   lib.generators.toJSON { } {
+    #     allowed_origins = [
+    #       "chrome-extension://pdffhmdngciaglkoonimfcmckehcpafo/"
+    #       "chrome-extension://oboonakemofpalcgghocfoadofidjkkk/"
+    #     ];
+    #     description = "KeePassXC integration with native messaging support";
+    #     name = "org.keepassxc.keepassxc_browser";
+    #     path = "${pkgs.keepassxc}/bin/keepassxc-proxy";
+    #     type = "stdio";
+    #   };
 
-    # Config File
+    #Config File
     "${config.xdg.configHome}/keepassxc/keepassxc.ini".text =
       lib.generators.toINI { } {
         General = {
