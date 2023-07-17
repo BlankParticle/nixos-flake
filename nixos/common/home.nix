@@ -3,7 +3,7 @@
     inherit username;
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
-      google-chrome-dev
+      google-chrome
       obsidian
       celluloid
     ];

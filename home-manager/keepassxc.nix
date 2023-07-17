@@ -20,7 +20,7 @@
   ];
   home.file = {
     # Chrome-Dev Message Host
-    "${config.xdg.configHome}/google-chrome-unstable/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json".text =
+    "${config.xdg.configHome}/google-chrome/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json".text =
       lib.generators.toJSON { } {
         allowed_origins = [
           "chrome-extension://pdffhmdngciaglkoonimfcmckehcpafo/"
