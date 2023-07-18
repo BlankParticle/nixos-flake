@@ -22,8 +22,6 @@
           info "CPU" cpu
           info "GPU" gpu
           info "Memory" memory
-          info "Song" song
-          [[ "$player" ]] && prin "Music Player" "$player"
           info cols
       }
       kernel_shorthand="on"
@@ -48,8 +46,6 @@
       gtk2="on"
       gtk3="on"
       de_version="on"
-      music_player="auto"
-      song_format="%title% | %artist%"
     '';
   };
 }

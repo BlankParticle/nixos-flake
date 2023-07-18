@@ -6,6 +6,9 @@
       google-chrome
       obsidian
       celluloid
+      pavucontrol
+      playerctl
+      yt-dlp
     ];
     stateVersion = "23.05";
   };

@@ -27,6 +27,7 @@
         gnome-text-editor
         gnome-tour
       ]);
+    systemPackages = with pkgs; [ gnome.dconf-editor ];
   };
   programs.gnome-terminal.enable = true;
 }

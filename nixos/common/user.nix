@@ -18,5 +18,5 @@
     polkit.enable = true;
     sudo.extraConfig = "Defaults !tty_tickets, pwfeedback";
   };
-  environment.systemPackages = with pkgs; [ curl wget usbutils pciutils binutils zip unzip pavucontrol ];
+  environment.systemPackages = with pkgs; [ curl wget usbutils pciutils binutils coreutils zip unzip jq ];
 }
