@@ -38,9 +38,10 @@ Some app requires patches after installation to work properly, my currently used
 ### Enable Krisp Noise suppression in Discord
 
 ```bash
-nix run github:steinerkelvin/dotfiles#discord-krisp-patch
+discord-krisp-patch
 ```
 
 ## 📝 License
+
 Copyright © 2023 [BlankParticle](https://github.com/BlankParticle). <br />
 This project is [MIT](https://github.com/BlankParticle/nixos-flake/blob/main/LICENSE.txt) licensed.
