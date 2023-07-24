@@ -1,11 +1,23 @@
 {
   description = "Rust, Cargo and Tauri Project";
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  outputs = { self, nixpkgs }:
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+  };
+
+  outputs = { self, nixpkgs, rust-overlay }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      overlays = [ (import rust-overlay) ];
+
+      pkgs = import nixpkgs {
+        inherit system overlays;
+      };
+
       packages = with pkgs; [
+        rust-bin.stable.latest.default
+        rust-analyzer
         curl
         wget
         pkg-config
@@ -16,11 +28,6 @@
         libsoup
         webkitgtk
         librsvg
-        cargo
-        rustc
-        rustfmt
-        rustPackages.clippy
-        rust-analyzer
         (nodejs_20.override { enableNpm = false; })
         nodePackages_latest.pnpm
         nil
@@ -31,7 +38,7 @@
       devShells.${system}.default =
         pkgs.mkShell {
           inherit packages;
-          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
+          RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
         };
     };
 }
