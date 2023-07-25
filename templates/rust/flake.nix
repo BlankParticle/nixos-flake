@@ -16,8 +16,9 @@
       };
 
       packages = with pkgs; [
-        rust-bin.stable.latest.default
-        rust-analyzer
+        (rust-bin.stable.latest.default.override {
+          components = [ "rust-src" "rust-analyzer" ];
+        })
         nil
         nixpkgs-fmt
       ];
@@ -26,7 +27,6 @@
       devShells.${system}.default =
         pkgs.mkShell {
           inherit packages;
-          RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
         };
     };
 }
