@@ -17,7 +17,7 @@
 
       packages = with pkgs; [
         (rust-bin.stable.latest.default.override {
-          components = [ "rust-src" "rust-analyzer" ];
+          extensions = [ "rust-src" "rust-analyzer" ];
         })
         curl
         wget
