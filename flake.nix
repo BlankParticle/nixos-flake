@@ -36,6 +36,7 @@
       devShells.${system}.default =
         pkgs.mkShell {
           packages = with pkgs; [
+            nodejs
             nil
             nixpkgs-fmt
           ];
