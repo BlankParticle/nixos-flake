@@ -11,4 +11,8 @@
     path = ./rust-tauri;
     description = "Rust, Cargo and Tauri Project";
   };
+  sveltekit-tailwind = {
+    path = ./sveltekit-tailwind;
+    description = "SvelteKit and Tailwind Project";
+  };
 }
