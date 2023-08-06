@@ -1,11 +1,7 @@
 {
-  nodejs = {
-    path = ./nodejs;
+  nodejs-typescript = {
+    path = ./nodejs-typescript;
     description = "NodeJS current and pnpm Project";
-  };
-  nodejs-prisma = {
-    path = ./nodejs-prisma;
-    description = "NodeJS current, pnpm and prisma Project";
   };
   rust = {
     path = ./rust;

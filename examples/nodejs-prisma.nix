@@ -1,3 +1,4 @@
+# This flake is for future ref to use prisma with nix
 {
   description = "NodeJS current, pnpm and prisma Project";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

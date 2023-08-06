@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-project",
+  "version": "0.0.1-beta",
+  "description": "Project Description",
+  "main": "dist/index.js",
+  "repository": {
+    "url": "https://github.com/BlankParticle"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "BlankParticle",
+  "license": "MIT",
+  "devDependencies": {
+    "@swc/core": "^1.3.74",
+    "@types/node": "^20.4.8",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

@@ -25,6 +25,10 @@ The templates usually follow the naming style of `{language}-{technology}`.
 
 These can be used to initialize a project's dependencies.
 
+## 🕯️ [Examples](./examples/)
+
+This directory incudes some examples for using certain things with nix.
+
 ```bash
 nix flake init -t github:BlankParticle/nixos-flake#{template}
 ```

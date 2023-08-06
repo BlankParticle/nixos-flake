@@ -11,7 +11,6 @@ in
       colorScheme = "mauve";
 
       enabledExtensions = with spicetify-pkgs.extensions; [
-        fullAppDisplay
         shuffle
         hidePodcasts
         adblock

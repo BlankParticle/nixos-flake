@@ -1,0 +1,10 @@
+[package]
+name = "rust-project"
+version = "0.0.1-beta"
+description = "Project Description"
+authors = ["BlankParticle"]
+edition = "2021"
+repository = "https://github.com/BlankParticle/"
+license = "MIT"
+
+[dependencies]
