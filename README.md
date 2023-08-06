@@ -25,15 +25,15 @@ The templates usually follow the naming style of `{language}-{technology}`.
 
 These can be used to initialize a project's dependencies.
 
-## 🕯️ [Examples](./examples/)
-
-This directory incudes some examples for using certain things with nix.
-
 ```bash
 nix flake init -t github:BlankParticle/nixos-flake#{template}
 ```
 
 Usage of [direnv](https://direnv.net/) and [direnv VSCode extension](https://marketplace.visualstudio.com/items?itemName=mkhl.direnv) is recommended.
+
+## 🕯️ [Examples](./examples/)
+
+This directory incudes some examples for using certain things with nix.
 
 ## 🩹 Patches
 
