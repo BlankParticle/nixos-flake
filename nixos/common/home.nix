@@ -9,6 +9,7 @@
       pavucontrol
       playerctl
       yt-dlp
+      vscode
     ];
     stateVersion = "23.05";
   };

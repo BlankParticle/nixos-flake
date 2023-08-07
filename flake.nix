@@ -1,6 +1,5 @@
 {
   description = "BlankParticle's NixOS Flake";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
@@ -9,7 +8,6 @@
     };
     spicetify.url = "github:the-argus/spicetify-nix";
   };
-
   outputs = imported-modules:
     let
       username = "blank";
@@ -36,7 +34,6 @@
       devShells.${system}.default =
         pkgs.mkShell {
           packages = with pkgs; [
-            nodejs
             nil
             nixpkgs-fmt
           ];

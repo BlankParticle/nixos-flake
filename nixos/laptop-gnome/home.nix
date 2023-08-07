@@ -16,7 +16,6 @@
       "discord"
       "neofetch"
       "btop"
-      "vscode"
       "obs-studio"
     ];
 }
