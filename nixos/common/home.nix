@@ -10,6 +10,8 @@
       playerctl
       yt-dlp
       vscode
+      thunderbird
+      deja-dup
     ];
     stateVersion = "23.05";
   };

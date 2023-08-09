@@ -1,7 +1,9 @@
 { pkgs, ... }: {
-  services.xserver = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+  services = {
+    xserver = {
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
   };
 
   environment = {
@@ -10,7 +12,6 @@
         baobab # disk usage analyzer
         cheese # photo booth
         epiphany # web browser
-        gedit # text editor
         simple-scan # document scanner
         totem # video player
         yelp # help viewer
@@ -22,6 +23,7 @@
         gnome-weather
         gnome-disk-utility
       ]) ++ (with pkgs;[
+        gedit # text editor
         gnome-console
         gnome-connections
         gnome-text-editor
