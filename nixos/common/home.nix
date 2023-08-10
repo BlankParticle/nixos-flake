@@ -9,7 +9,10 @@
       pavucontrol
       playerctl
       yt-dlp
-      vscode
+      # TODO: remove the Override once the issue is fixed
+      (vscode.overrideAttrs (oldAttrs: {
+        runtimeDependencies = (oldAttrs.runtimeDependencies or [ ]) ++ [ libsecret ];
+      }))
       thunderbird
       deja-dup
     ];

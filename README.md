@@ -42,7 +42,7 @@ Some app requires patches after installation to work properly, my currently used
 ### Enable Krisp Noise suppression in Discord
 
 ```bash
-discord-krisp-patch
+discord-krisp-patcher
 ```
 
 ## 📝 License

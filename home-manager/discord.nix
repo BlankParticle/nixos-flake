@@ -6,7 +6,8 @@
         withVencord = true;
         withTTS = false;
       })
-      discord-krisp-patch
+      # Discord Krisp Patcher
+      (callPackage ../pkgs/discord-krisp-patcher { })
     ];
   };
 }

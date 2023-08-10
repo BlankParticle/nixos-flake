@@ -8,27 +8,19 @@
     };
     spicetify.url = "github:the-argus/spicetify-nix";
   };
-  outputs = imported-modules:
+  outputs = { nixpkgs, ... } @ imported-modules:
     let
       username = "blank";
       system = "x86_64-linux";
-      pkgs =
-        import
-          imported-modules.nixpkgs
-          {
-            inherit system;
-            config.allowUnfree = true;
-          };
-      custom-pkgs = import ./pkgs
-        {
-          inherit pkgs;
-        };
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = (
         import ./nixos {
-          inherit imported-modules username system;
-          pkgs = pkgs // custom-pkgs;
+          inherit imported-modules username system pkgs;
         }
       );
       devShells.${system}.default =
