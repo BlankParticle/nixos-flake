@@ -9,12 +9,10 @@
       pavucontrol
       playerctl
       yt-dlp
-      # TODO: remove the Override once the issue is fixed
-      (vscode.overrideAttrs (oldAttrs: {
-        runtimeDependencies = (oldAttrs.runtimeDependencies or [ ]) ++ [ libsecret ];
-      }))
       thunderbird
       deja-dup
+      # TODO: maintain this myslef until everything is fixed in upstream
+      (callPackage ../../pkgs/vscode { })
     ];
     stateVersion = "23.05";
   };
