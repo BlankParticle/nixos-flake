@@ -23,8 +23,8 @@
 , fetchurl
 }:
 let
-  sha256 = "0hc1pfrhmdydwgyz3mjp45nmzs101iffam7ciximqmnhf1s1x4qf";
-  version = "1.81.0";
+  version = "1.81.1";
+  hash = "sha256-Tqawqu0iR0An3CZ4x3RGG0vD3x/PvQyRhVThc6SvdEg=";
   pname = "vscode";
   executableName = "code";
   longName = "Visual Studio Code";
@@ -33,7 +33,7 @@ let
   src = fetchurl {
     name = "VSCode_${version}_linux-x64.tar.gz";
     url = "https://update.code.visualstudio.com/${version}/linux-x64/stable";
-    inherit sha256;
+    inherit hash;
   };
 in
 stdenv.mkDerivation {
