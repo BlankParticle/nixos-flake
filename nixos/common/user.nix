@@ -33,5 +33,8 @@
     fd
     lazygit
     imagemagickBig
+    texlive.combined.scheme-full
+    kondo
+    tokei
   ];
 }

@@ -10,6 +10,7 @@
         efiSysMountPoint = "/boot";
       };
       grub = {
+        default = "saved";
         efiSupport = true;
         device = "nodev";
         useOSProber = true;

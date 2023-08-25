@@ -11,8 +11,7 @@
       yt-dlp
       thunderbird
       deja-dup
-      # TODO: maintain this myslef until everything is fixed in upstream
-      (callPackage ../../pkgs/vscode { })
+      vscode
     ];
     stateVersion = "23.05";
   };
