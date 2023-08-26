@@ -5,6 +5,7 @@
     bluetooth-quick-connect
     blur-my-shell
     pano
+    search-light
   ];
 
   dconf.settings = {
@@ -12,11 +13,12 @@
       enabled-extensions = [
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "mprisLabel@moon-0xff.github.com"
-        "username-to-activities@deserts"
         "appindicatorsupport@rgcjonas.gmail.com"
         "bluetooth-quick-connect@bjarosze.gmail.com"
         "blur-my-shell@aunetx"
         "pano@elhan.io"
+        "search-light@icedman.github.com"
+        "flypie@schneegans.github.com"
       ];
     };
 
@@ -42,7 +44,7 @@
       divider-string = "\ |\ ";
       extension-index = 0;
       first-field = "xesam:title";
-      icon-padding = 0;
+      icon-padding = 5;
       last-field = "";
       left-click-action = "play-pause";
       left-padding = 5;
@@ -75,6 +77,7 @@
       history-length = 500;
       link-previews = false;
       send-notification-on-copy = false;
+      play-audio-on-copy = false;
       sync-primary = false;
       watch-exclusion-list = true;
       global-shortcut = [ "<Super>v" ];

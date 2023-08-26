@@ -9,7 +9,6 @@
       pavucontrol
       playerctl
       yt-dlp
-      thunderbird
       deja-dup
       vscode
     ];
