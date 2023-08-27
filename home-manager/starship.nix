@@ -39,7 +39,7 @@
       memory_usage.format = "\\[$symbol[$ram( | $swap)]($style)\\]";
       meson.format = "\\[[$symbol$project]($style)\\]";
       nim.format = "\\[[$symbol($version)]($style)\\]";
-      nix_shell.format = "\\[[$symbol$state( \\($name\\))]($style)\\]";
+      nix_shell.format = "\\[[(\\($name\\))]($style)\\]";
       nodejs.format = "\\[[$symbol($version)]($style)\\]";
       ocaml.format = "\\[[$symbol($version)(\\($switch_indicator$switch_name\\))]($style)\\]";
       opa.format = "\\[[$symbol($version)]($style)\\]";

@@ -1,4 +1,8 @@
 {
+  emprty = {
+    path = ./empty;
+    description = "Empty Nix Project";
+  };
   nodejs-typescript = {
     path = ./nodejs-typescript;
     description = "NodeJS current and pnpm Project";

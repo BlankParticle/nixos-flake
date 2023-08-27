@@ -36,5 +36,6 @@
     texlive.combined.scheme-full
     kondo
     tokei
+    zellij
   ];
 }
