@@ -1,5 +1,5 @@
 {
-  emprty = {
+  empty = {
     path = ./empty;
     description = "Empty Nix Project";
   };
