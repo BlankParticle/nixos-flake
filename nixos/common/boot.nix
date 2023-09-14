@@ -1,6 +1,10 @@
 { pkgs, ... }: {
   boot = {
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      themePackages = [ (pkgs.catppuccin-plymouth.override ({ variant = "mocha"; })) ];
+      theme = "catppuccin-mocha";
+    };
     kernelPackages = pkgs.linuxPackages_latest;
     initrd.kernelModules = [ "amdgpu" ];
     supportedFilesystems = [ "ntfs" ];

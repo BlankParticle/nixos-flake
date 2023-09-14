@@ -4,7 +4,9 @@
   outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+      };
       packages = with pkgs; [
         (nodejs_20.override { enableNpm = false; })
         nodePackages_latest.pnpm
