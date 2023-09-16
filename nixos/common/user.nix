@@ -37,5 +37,7 @@
     kondo
     tokei
     zellij
+    ffmpeg
+    nmap
   ];
 }
