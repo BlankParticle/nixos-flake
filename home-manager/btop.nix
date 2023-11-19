@@ -67,9 +67,9 @@
     log_level = "WARNING";
   };
 
-  home.file."${config.xdg.configHome}/btop/themes/catppuccin_mocha.theme".source =
-    builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/btop/main/themes/catppuccin_mocha.theme";
-      sha256 = "1s5slqn8v0h9q6s6gmsvp9rlayyc3n2msnlyfdw8ilv6lw0v3rjd";
-    };
+  # home.file."${config.xdg.configHome}/btop/themes/catppuccin_mocha.theme".source =
+  #   builtins.fetchurl {
+  #     url = "https://raw.githubusercontent.com/catppuccin/btop/main/themes/catppuccin_mocha.theme";
+  #     sha256 = "1s5slqn8v0h9q6s6gmsvp9rlayyc3n2msnlyfdw8ilv6lw0v3rjd";
+  #   };
 }
