@@ -9,5 +9,6 @@
         Exec=bash -c 'sleep 5 && keepassxc'
       '';
     })
+    (pkgs.callPackage ../../../pkgs/keepassxc-populate-keys { })
   ];
 }

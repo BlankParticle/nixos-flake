@@ -21,5 +21,6 @@
     nmap
     nil
     nixpkgs-fmt
+    shellcheck
   ];
 }
