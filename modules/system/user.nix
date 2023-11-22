@@ -2,7 +2,7 @@
   users.users.${metadata.username} = {
     isNormalUser = true;
     description = metadata.fullUsername;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
   };
   programs = {
