@@ -19,12 +19,12 @@
     homeDirectory = "/home/${metadata.username}";
     packages = with pkgs; [
       google-chrome
-      obsidian
       celluloid
       pavucontrol
       playerctl
       yt-dlp
       vscode
+      amberol
     ];
     stateVersion = "23.05";
   };

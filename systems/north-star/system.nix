@@ -9,7 +9,7 @@
       "fonts"
       "network"
       "programs"
-    ] ++ [../../modules/gnome/system.nix];
+    ] ++ [ ../../modules/gnome/system.nix ];
   system.stateVersion = "23.05";
   nix = {
     package = pkgs.nixFlakes;
